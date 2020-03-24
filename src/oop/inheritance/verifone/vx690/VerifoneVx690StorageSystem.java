@@ -3,6 +3,17 @@ package oop.inheritance.verifone.vx690;
 import java.util.Properties;
 
 public class VerifoneVx690StorageSystem {
+    private static VerifoneVx690StorageSystem instance;
+
+    private VerifoneVx690StorageSystem(){
+    }
+
+    public static VerifoneVx690StorageSystem getInstance(){
+        if(instance==null){
+            instance=new VerifoneVx690StorageSystem();
+        }
+        return instance;
+    }
 
     private Properties properties = new Properties();
 
