@@ -28,7 +28,7 @@ public class Application {
 
     public void showMenu() {
         if (supportedTerminal == SupportedTerminal.INGENICO) {
-            IngenicoDisplay ingenicoDisplay = new IngenicoDisplay.getInstance();
+            IngenicoDisplay ingenicoDisplay = IngenicoDisplay.getInstance();
 
             ingenicoDisplay.showMessage(5, 5, "MENU");
             ingenicoDisplay.showMessage(5, 10, "1. VENTA");
@@ -36,7 +36,7 @@ public class Application {
             ingenicoDisplay.showMessage(5, 16, "3. REPORTE");
             ingenicoDisplay.showMessage(5, 23, "4. CONFIGURACION");
         } else {
-            VerifoneV240mDisplay verifoneV240mDisplay = new VerifoneV240mDisplay.getInstance();
+            VerifoneV240mDisplay verifoneV240mDisplay = VerifoneV240mDisplay.getInstance();
 
             verifoneV240mDisplay.showMessage(5, 5, "MENU");
             verifoneV240mDisplay.showMessage(5, 10, "1. VENTA");
@@ -48,16 +48,16 @@ public class Application {
     }
 
     public String readKey() {
-        IngenicoKeyboard ingenicoKeyboard = new IngenicoKeyboard.getInstance();
+        IngenicoKeyboard ingenicoKeyboard = IngenicoKeyboard.getInstance();
 
         return ingenicoKeyboard.get();
     }
 
     public void doSale() {
-        IngenicoCardSwipper cardSwipper = new IngenicoCardSwipper.getInstance();
-        IngenicoChipReader chipReader = new IngenicoChipReader.getInstance();
-        IngenicoDisplay ingenicoDisplay = new IngenicoDisplay.getInstance();
-        IngenicoKeyboard ingenicoKeyboard = new IngenicoKeyboard.getInstance();
+        IngenicoCardSwipper cardSwipper = IngenicoCardSwipper.getInstance();
+        IngenicoChipReader chipReader = IngenicoChipReader.getInstance();
+        IngenicoDisplay ingenicoDisplay = IngenicoDisplay.getInstance();
+        IngenicoKeyboard ingenicoKeyboard = IngenicoKeyboard.getInstance();
         Card card;
 
         do {
@@ -89,7 +89,7 @@ public class Application {
     }
 
     private void printReceipt(Transaction transaction, String hostReference) {
-        IngenicoPrinter ingenicoPrinter = new IngenicoPrinter.getInstance();
+        IngenicoPrinter ingenicoPrinter = IngenicoPrinter.getInstance();
         Card card = transaction.getCard();
 
         ingenicoPrinter.print(5, "APROBADA");
@@ -103,9 +103,9 @@ public class Application {
     }
 
     private TransactionResponse sendSale(Transaction transaction) {
-        IngenicoEthernet ethernet = new IngenicoEthernet.getInstance();
-        IngenicoModem modem = new IngenicoModem.getInstance();
-        IngenicoGPS gps = new IngenicoGPS.getInstance();
+        IngenicoEthernet ethernet = IngenicoEthernet.getInstance();
+        IngenicoModem modem = IngenicoModem.getInstance();
+        IngenicoGPS gps = IngenicoGPS.getInstance();
         TransactionResponse transactionResponse = null;
 
         switch (communicationType) {
@@ -143,11 +143,11 @@ public class Application {
 
     public void clearScreen() {
         if (supportedTerminal == SupportedTerminal.INGENICO) {
-            IngenicoDisplay ingenicoDisplay = new IngenicoDisplay.getInstance();
+            IngenicoDisplay ingenicoDisplay = IngenicoDisplay.getInstance();
 
             ingenicoDisplay.clear();
         } else {
-            VerifoneV240mDisplay verifoneV240mDisplay = new VerifoneV240mDisplay.getInstance();
+            VerifoneV240mDisplay verifoneV240mDisplay = VerifoneV240mDisplay.getInstance();
 
             verifoneV240mDisplay.clear();
         }
