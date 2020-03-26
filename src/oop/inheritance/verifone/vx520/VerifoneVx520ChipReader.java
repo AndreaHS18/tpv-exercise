@@ -3,19 +3,9 @@ package oop.inheritance.verifone.vx520;
 import oop.inheritance.data.Card;
 import oop.inheritance.data.EntryMode;
 import oop.inheritance.data.ExpirationDate;
+import oop.inheritance.tpv.ChipReader;
 
-public class VerifoneVx520ChipReader {
-    private static VerifoneVx520ChipReader instance;
-
-    private VerifoneVx520ChipReader(){
-    }
-
-    public static VerifoneVx520ChipReader getInstance(){
-        if(instance==null){
-            instance=new VerifoneVx520ChipReader();
-        }
-        return instance;
-    }
+public class VerifoneVx520ChipReader implements ChipReader {
 
     public Card readCard() {
         return Card.builder()

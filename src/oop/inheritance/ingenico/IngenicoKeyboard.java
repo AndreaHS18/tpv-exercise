@@ -1,17 +1,8 @@
 package oop.inheritance.ingenico;
 
-public class IngenicoKeyboard {
-    private static IngenicoKeyboard instance;
+import oop.inheritance.tpv.Keyboard;
 
-    private IngenicoKeyboard(){
-    }
-
-    public static IngenicoKeyboard getInstance(){
-        if(instance==null){
-            instance=new IngenicoKeyboard();
-        }
-        return instance;
-    }
+public class IngenicoKeyboard implements Keyboard {
 
     /**
      * @return key pressed

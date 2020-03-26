@@ -1,17 +1,10 @@
 package oop.inheritance.verifone.v240m;
 
-public class VerifoneV240mModem {
-    private static VerifoneV240mModem instance;
+import oop.inheritance.data.Transaction;
+import oop.inheritance.data.TransactionResponse;
+import oop.inheritance.tpv.CommunicationDevice;
 
-    private VerifoneV240mModem(){
-    }
-
-    public static VerifoneV240mModem getInstance(){
-        if(instance==null){
-            instance=new VerifoneV240mModem();
-        }
-        return instance;
-    }
+public class VerifoneV240mModem implements CommunicationDevice {
 
     /**
      * Opens a connection using the modem device
@@ -23,14 +16,9 @@ public class VerifoneV240mModem {
         return true;
     }
 
-    /**
-     * Sends a message to the server
-     *
-     * @param message message to be sent to the server
-     * @return true if the message was sent successfully, false otherwise
-     */
-    public boolean send(byte[] message) {
-        return true;
+    @Override
+    public boolean send(Transaction transaction) {
+        return false;
     }
 
     /**
@@ -38,8 +26,8 @@ public class VerifoneV240mModem {
      *
      * @return Message received from the host. In case of timeout it returns null
      */
-    public byte[] receive() {
-        return "response".getBytes();
+    public TransactionResponse receive() {
+        return new TransactionResponse(true, "12314");
     }
 
     /**

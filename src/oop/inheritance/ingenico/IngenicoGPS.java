@@ -2,19 +2,9 @@ package oop.inheritance.ingenico;
 
 import oop.inheritance.data.Transaction;
 import oop.inheritance.data.TransactionResponse;
+import oop.inheritance.tpv.CommunicationDevice;
 
-public class IngenicoGPS {
-    private static IngenicoGPS instance;
-
-    private IngenicoGPS(){
-    }
-
-    public static IngenicoGPS getInstance(){
-        if(instance==null){
-            instance=new IngenicoGPS();
-        }
-        return instance;
-    }
+public class IngenicoGPS implements CommunicationDevice {
 
     /**
      * Opens a connection using the GPS device

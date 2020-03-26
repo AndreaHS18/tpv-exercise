@@ -2,19 +2,9 @@ package oop.inheritance.ingenico;
 
 import oop.inheritance.data.Transaction;
 import oop.inheritance.data.TransactionResponse;
+import oop.inheritance.tpv.CommunicationDevice;
 
-public class IngenicoModem {
-    private static IngenicoModem instance;
-
-    private IngenicoModem(){
-    }
-
-    public static IngenicoModem getInstance(){
-        if(instance==null){
-            instance=new IngenicoModem();
-        }
-        return instance;
-    }
+public class IngenicoModem implements CommunicationDevice {
 
     /**
      * Opens a connection using the modem device

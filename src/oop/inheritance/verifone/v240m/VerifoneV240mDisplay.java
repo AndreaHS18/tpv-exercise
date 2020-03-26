@@ -1,17 +1,8 @@
 package oop.inheritance.verifone.v240m;
 
-public class VerifoneV240mDisplay {
-    private static VerifoneV240mDisplay instance;
+import oop.inheritance.tpv.Display;
 
-    private VerifoneV240mDisplay(){
-    }
-
-    public static VerifoneV240mDisplay getInstance(){
-        if(instance==null){
-            instance=new VerifoneV240mDisplay();
-        }
-        return instance;
-    }
+public class VerifoneV240mDisplay implements Display {
 
     /**
      * Prints a message to specied position

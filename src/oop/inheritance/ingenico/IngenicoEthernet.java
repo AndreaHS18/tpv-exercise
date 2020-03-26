@@ -2,20 +2,9 @@ package oop.inheritance.ingenico;
 
 import oop.inheritance.data.Transaction;
 import oop.inheritance.data.TransactionResponse;
+import oop.inheritance.tpv.CommunicationDevice;
 
-public class IngenicoEthernet {
-    private static IngenicoEthernet instance;
-
-    private IngenicoEthernet(){
-    }
-
-    public static IngenicoEthernet getInstance(){
-        if(instance==null){
-            instance=new IngenicoEthernet();
-        }
-        return instance;
-    }
-
+public class IngenicoEthernet implements CommunicationDevice {
     /**
      * Opens a connection using the ethernet device
      *
